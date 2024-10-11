@@ -18,6 +18,8 @@
 
 - In order to try relational databases I needed to create at least two tables in my database.
 
+  - created two table one for guest and one for comments - currently functionality is still the same but intend to use guest seperatley in some way - maybe a login of sorts
+
 - Conditional rendering of the form inputs.
 
 - Query Strings to order posts by rating or date.

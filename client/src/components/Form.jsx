@@ -4,9 +4,10 @@ export default function Form() {
   const [formValues, setFormValues] = useState({
     guest_name: "",
     feedback: "",
-    feedback_date: "",
     rating: "",
   });
+
+  const [error, setError] = useState("");
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -20,6 +21,14 @@ export default function Form() {
     });
     const data = await response.json();
     console.log(data);
+    if (data.success === false) {
+      setError(data.message);
+      return;
+    }
+    setError("");
+    alert(
+      "Thank you for your feedback. Here is your code: FLAMINGO10 for 10% off your next stay!"
+    );
   }
 
   function handleInputChange(event) {
@@ -37,6 +46,7 @@ export default function Form() {
           type="text"
           id="guest_name"
           name="guest_name"
+          required
           value={formValues.guest_namename}
           onChange={handleInputChange}
         />
@@ -46,16 +56,8 @@ export default function Form() {
           type="text"
           id="feedback"
           name="feedback"
+          required
           value={formValues.feedback}
-          onChange={handleInputChange}
-        />
-        <br />
-        <label htmlFor="feedback_date">Today&apos;s Date</label>
-        <input
-          type="date"
-          id="feedback_date"
-          name="feedback_date"
-          value={formValues.feedback_date}
           onChange={handleInputChange}
         />
         {/* I need some logic here as the rating can go below 1 and above 10 */}
@@ -68,11 +70,12 @@ export default function Form() {
           value={formValues.rating}
           onChange={handleInputChange}
         />
-        <p>Current guest name is: {formValues.guest_name}</p>
+        {/* <p>Current guest name is: {formValues.guest_name}</p>
         <p>Current feedback is: {formValues.feedback}</p>
         <p>Current date is: {formValues.date} </p>
-        <p>Current rating is: {formValues.rating} </p>
+        <p>Current rating is: {formValues.rating} </p> */}
         <button type="submit">Submit</button>
+        <div>{error}</div>
       </form>
     </>
   );

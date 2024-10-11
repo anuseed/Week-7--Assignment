@@ -41,7 +41,14 @@ JOIN guests ON comments.guest_id = guests.id; `);
 
 app.post("/add-comment", async (req, res) => {
   try {
-    const { guest_name, feedback, feedback_date, rating } = req.body;
+    const { guest_name, feedback, rating } = req.body;
+    if (rating < 1 || rating > 10) {
+      // this is a problem
+      res
+        .status(422)
+        .json({ success: false, message: "Rating must be between 1 and 10" });
+      return;
+    }
     const newGuest = await db.query(
       `INSERT INTO guests (guest_name) 
 VALUES ($1) RETURNING id;`,
@@ -52,7 +59,7 @@ VALUES ($1) RETURNING id;`,
           INSERT INTO comments ( feedback, feedback_date, rating, guest_id)
           VALUES ( $1, $2, $3, $4);
           `,
-      [feedback, feedback_date, rating, newGuest.rows[0].id]
+      [feedback, new Date(), rating, newGuest.rows[0].id]
     );
     res.status(200).json(newComment.rows);
   } catch (error) {

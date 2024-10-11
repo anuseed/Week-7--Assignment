@@ -22,6 +22,7 @@ export default function CommentsPage() {
           <h1>{item.guest_name}</h1>
           <p>{item.feedback}</p>
           <p>{item.rating}</p>
+          {/* date was displaying with a time stamp setting the date toLocaleDateString() takes away the timestamp on rendering */}
           <p>{new Date(item.feedback_date).toLocaleDateString()}</p>
         </div>
       ))}
