@@ -6,7 +6,8 @@ db.query(`CREATE TABLE IF NOT EXISTS comments (
     guest_name VARCHAR(255),
     feedback TEXT,
     feedback_date DATE,
-    rating INT
+    rating INT,
+    
   );`);
 
 db.query(

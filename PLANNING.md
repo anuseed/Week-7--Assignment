@@ -26,6 +26,8 @@ DONE with two endpoints get and post
 
 ## Setup the client
 
+client basic setup done with components and server connections
+
 replace local url with render url at the end
 
 ## connect to github and render
