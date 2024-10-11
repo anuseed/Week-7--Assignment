@@ -28,7 +28,7 @@ app.get("/", (req, res) => {
 app.get("/comments", async (req, res) => {
   try {
     const commentsData = await db.query(`SELECT * FROM comments; `);
-    console.log(commentsDataData);
+    console.log(commentsData);
     res.status(200).json(commentsData.rows);
   } catch (error) {
     console.error("Unable to get comments", error);

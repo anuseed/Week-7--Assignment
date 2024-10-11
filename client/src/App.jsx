@@ -11,8 +11,9 @@ export default function App() {
   return (
     <>
       <Header />
+
       <Routes>
-        <Route path="/home" element={<HomePage />} />
+        <Route path="/homepage" element={<HomePage />} />
         <Route path="/feedback" element={<FeedbackPage />} />
         <Route path="/comments" element={<CommentsPage />} />
       </Routes>

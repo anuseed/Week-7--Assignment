@@ -1,12 +1,29 @@
-// here i wil fetch the posts from the server get endpoint wich is getting the posts from db
+import { useState, useEffect } from "react";
 
 export default function CommentsPage() {
-  // we need useEffect to fetch the data
-  // we need a function to fetchData()
-  // once you are finished replace local host url with render url
+  const [comment, setComment] = useState([]);
+
+  useEffect(() => {
+    async function fetchData() {
+      const response = await fetch("http://localhost:8080/comments");
+
+      const data = await response.json();
+      console.log(data);
+      setComment(data);
+    }
+    fetchData();
+  }, []);
+
   return (
     <>
       <h1>Comments</h1>
+      {comment.map((item) => (
+        <div key={item.id}>
+          <h1>{item.guest_name}</h1>
+          <p>{item.feedback}</p>
+          <p>{item.rating}</p>
+        </div>
+      ))}
       {/* could have some conditional redndeing  */}
     </>
   );
