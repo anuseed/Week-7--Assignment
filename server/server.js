@@ -27,7 +27,10 @@ app.get("/", (req, res) => {
 
 app.get("/comments", async (req, res) => {
   try {
-    const commentsData = await db.query(`SELECT * FROM comments; `);
+    const commentsData = await db.query(`SELECT 
+  comments.feedback, comments.feedback_date, comments.rating, guests.guest_name 
+FROM comments
+JOIN guests ON comments.guest_id = guests.id; `);
     console.log(commentsData);
     res.status(200).json(commentsData.rows);
   } catch (error) {
@@ -39,12 +42,17 @@ app.get("/comments", async (req, res) => {
 app.post("/add-comment", async (req, res) => {
   try {
     const { guest_name, feedback, feedback_date, rating } = req.body;
+    const newGuest = await db.query(
+      `INSERT INTO guests (guest_name) 
+VALUES ($1) RETURNING id;`,
+      [guest_name]
+    );
     const newComment = await db.query(
       `
-          INSERT INTO comments (guest_name, feedback, feedback_date, rating)
-          VALUES ($1, $2, $3, $4);
+          INSERT INTO comments ( feedback, feedback_date, rating, guest_id)
+          VALUES ( $1, $2, $3, $4);
           `,
-      [guest_name, feedback, feedback_date, rating]
+      [feedback, feedback_date, rating, newGuest.rows[0].id]
     );
     res.status(200).json(newComment.rows);
   } catch (error) {
