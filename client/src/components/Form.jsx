@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Form() {
   const [formValues, setFormValues] = useState({
@@ -8,6 +9,11 @@ export default function Form() {
   });
 
   const [error, setError] = useState("");
+
+  //   https://stackoverflow.com/questions/31079081/how-to-programmatically-navigate-using-react-router
+  //   this is how I got the user to go directly to the comments page on submitting the form
+
+  const navigate = useNavigate();
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -29,6 +35,7 @@ export default function Form() {
     alert(
       "Thank you for your feedback. Here is your code: FLAMINGO10 for 10% off your next stay!"
     );
+    navigate("/comments");
   }
 
   function handleInputChange(event) {
@@ -52,7 +59,7 @@ export default function Form() {
         />
         <br />
         <label htmlFor="feedback">Feedback</label>
-        <input
+        <textarea
           type="text"
           id="feedback"
           name="feedback"
@@ -70,10 +77,7 @@ export default function Form() {
           value={formValues.rating}
           onChange={handleInputChange}
         />
-        {/* <p>Current guest name is: {formValues.guest_name}</p>
-        <p>Current feedback is: {formValues.feedback}</p>
-        <p>Current date is: {formValues.date} </p>
-        <p>Current rating is: {formValues.rating} </p> */}
+        <br />
         <button type="submit">Submit</button>
         <div>{error}</div>
       </form>

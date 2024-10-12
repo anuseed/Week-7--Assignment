@@ -1,0 +1,124 @@
+:root {
+  background-image: url(../public/images/maria-orlova-b37mDyPzdJM-unsplash.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
+  z-index: 0;
+  padding: 0;
+  margin: 0;
+  font-family: Catamaran Light;
+}
+
+.header {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  color: #432420;
+  font-family: Catamaran Light;
+}
+
+.logo-slogan {
+  display: flex;
+  flex-direction: column;
+}
+
+.logo-slogan h1 {
+  font-size: 35px;
+  margin-bottom: -15px;
+}
+
+.logo-slogan h3 {
+  font-size: 20px;
+  padding-left: 30px;
+}
+
+.link {
+  text-decoration: none;
+  color: #432420;
+}
+.link:hover {
+  text-decoration: underline;
+}
+
+.welcome {
+  border-radius: 25px;
+  height: 200px;
+  padding: 40px;
+  background-color: #e39a74;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 60px;
+}
+
+.welcome p {
+  margin: 5px;
+}
+.feedback-button {
+  text-decoration: none;
+  color: #91452c;
+}
+
+.welcome button {
+  color: #91452c;
+  font-family: "Catamaran Light";
+  margin-top: 15px;
+}
+
+.form-container {
+  border-radius: 25px;
+  color: #432420;
+  padding: 40px;
+  margin: 60px;
+  background-color: #c96e43;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+pre {
+  font-family: "Catamaran Light";
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+button {
+  color: #91452c;
+  font-family: "Catamaran Light";
+}
+
+.comments-container {
+  border-radius: 25px;
+  color: #432420;
+  padding: 40px;
+  margin: 60px;
+  background-color: #e2ced0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.footer {
+  background-color: #e2ced0;
+  position: fixed;
+  height: 100px;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@font-face {
+  font-family: "Catamaran Light";
+  font-style: normal;
+  font-weight: normal;
+  src: local("Catamaran Light"),
+    url("../public/fonts/Catamaran-Light.woff") format("woff");
+}

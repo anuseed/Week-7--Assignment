@@ -2,14 +2,21 @@ import { Link } from "react-router-dom";
 
 export default function Header() {
   return (
-    <>
-      <h1>Hotel Flamingo</h1>
-      <h2>Stay in Paradise</h2>
-      <Link to="/homepage">Home</Link>
-      <br />
-      <Link to="/feedback">Feedback</Link>
-      <br />
-      <Link to="/comments">Comments</Link>
-    </>
+    <div className="header">
+      <div className="logo-slogan">
+        <h1>Hotel Flamingo</h1>
+        <h3>Stay in Paradise</h3>
+      </div>
+
+      <Link className="link" to="/homepage">
+        Home
+      </Link>
+      <Link className="link" to="/feedback">
+        Feedback
+      </Link>
+      <Link className="link" to="/comments">
+        Comments
+      </Link>
+    </div>
   );
 }

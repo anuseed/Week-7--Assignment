@@ -18,10 +18,14 @@
 
 - In order to try relational databases I needed to create at least two tables in my database.
 
-  - created two table one for guest and one for comments - currently functionality is still the same but intend to use guest seperatley in some way - maybe a login of sorts
+  - created two table one for guest and one for comments - currently functionality is still the same but intend to use guest seperatley in some way - maybe a login of sorts if I have time.
 
 - Conditional rendering of the form inputs.
 
+  - I learnt that you shouldn't be asking the user to input the date especially if you know the date. Basically any data from the user should always be checked in the server rather than trusting the user to input the correct data. I added conditional rendering in the server to stop the user from inputing a value less than 1 and greater than 10 - (rating < 1 || rating > 10) - in the rating input. The server then sets a json message which I read in the client and display to the user in an error div.
+  - In the same vein I used the server to input the date - new Date() - into the database rather than the client/user inputing it.
+
 - Query Strings to order posts by rating or date.
+  This was very tricky. I intially used the code from the query strings workshop as is but then had trouble attaching the value of the rating to the output. I googled and asked for help on this one. I am hoping that a working example helps me to figure it out on my own next time.
 
 - Styling of app.
