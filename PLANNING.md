@@ -20,6 +20,10 @@
   - use sql editor to create your tables and insert seed data DONE
     - you can also add these to your seed.js later
 
+![Final Database Schema](./client/public/images/Screenshot%202024-10-13%20at%2021.27.30.png)
+
+![SQL qeuries on supabase](./client/public/images/Screenshot%202024-10-13%20at%2021.47.55.png)
+
 ## Setup your server
 
 DONE with two endpoints get and post
