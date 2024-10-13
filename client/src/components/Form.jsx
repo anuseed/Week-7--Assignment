@@ -18,13 +18,16 @@ export default function Form() {
   async function handleSubmit(event) {
     event.preventDefault();
     console.log("The form values are", formValues);
-    const response = await fetch("http://localhost:8080/add-comment", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(formValues),
-    });
+    const response = await fetch(
+      "https://week-7-assignment-server.onrender.com/add-comment",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formValues),
+      }
+    );
     const data = await response.json();
     console.log(data);
     if (data.success === false) {

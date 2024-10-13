@@ -12,7 +12,7 @@ export default function App() {
     <>
       <Header />
       <Routes>
-        <Route path="/homepage" element={<HomePage />} />
+        <Route path="/" element={<HomePage />} />
         <Route path="/feedback" element={<FeedbackPage />} />
         <Route path="/comments" element={<CommentsPage />} />
       </Routes>

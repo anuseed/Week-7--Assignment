@@ -8,7 +8,7 @@ export default function Header() {
         <h3>Stay in Paradise</h3>
       </div>
 
-      <Link className="link" to="/homepage">
+      <Link className="link" to="/">
         Home
       </Link>
       <Link className="link" to="/feedback">

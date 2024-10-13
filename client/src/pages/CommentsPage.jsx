@@ -37,23 +37,25 @@ export default function CommentsPage() {
 
   return (
     <div className="comments-container">
-      <h1>Comments</h1>
-      Sort comments by rating:
-      <select value={searchParams.get("sort") || ""} onChange={handleChange}>
-        <option value="">Select...</option>
-        <option value="asc">Ascending</option>
-        <option value="desc">Descending</option>
-      </select>
+      <div className="sort">
+        <h1>Comments</h1>
+        <p>Sort by rating:</p>
+        <select value={searchParams.get("sort") || ""} onChange={handleChange}>
+          <option value="">Select...</option>
+          <option value="asc">Ascending</option>
+          <option value="desc">Descending</option>
+        </select>
+      </div>
       {sortedComments.map((item) => (
-        <div key={item.id}>
+        <div className="comment" key={item.id}>
+          <div className="rating-date">
+            {/* date was displaying with a time stamp setting the date toLocaleDateString() takes away the timestamp on rendering */}
+            <div>{new Date(item.feedback_date).toLocaleDateString()}</div>
+            <div>Rating: {item.rating}/10</div>
+          </div>
           <h1>{item.guest_name}</h1>
-          <p>
-            {/* the pre respects a new line when a user presses enter */}
-            <pre>{item.feedback}</pre>
-          </p>
-          <p>{item.rating}</p>
-          {/* date was displaying with a time stamp setting the date toLocaleDateString() takes away the timestamp on rendering */}
-          <p>{new Date(item.feedback_date).toLocaleDateString()}</p>
+
+          <p>&quot;{item.feedback}&quot;</p>
         </div>
       ))}
     </div>

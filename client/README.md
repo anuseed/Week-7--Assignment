@@ -29,3 +29,4 @@
   This was very tricky. I intially used the code from the query strings workshop as is but then had trouble attaching the value of the rating to the output. I googled and asked for help on this one. I am hoping that a working example helps me to figure it out on my own next time.
 
 - Styling of app.
+  - This took so much longer than I anticipated. Creating divs to make containers for each items rendered through map() and making sure which were parents and which children made styling very tricky. I used :root instead of body to style the background intially and this gave a lot of issues. Changing it to body helped a lot. I syled the website desktop first as I assumed that is what most people would use for a hotel website but added some media queries for mobile. It's not perfect but will do. I learnt about opacity in rgb which was nice. Still finding position tricky and grid.
