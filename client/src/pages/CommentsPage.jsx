@@ -6,7 +6,9 @@ export default function CommentsPage() {
 
   useEffect(() => {
     async function fetchData() {
-      const response = await fetch("http://localhost:8080/comments");
+      const response = await fetch(
+        "https://week-7-assignment-server.onrender.com/comments"
+      );
 
       const data = await response.json();
       console.log(data);
